@@ -1,0 +1,16 @@
+C:\Users\Maxime\IdeaProjects\nightclazz-bdd-rennes\src\main\java\bplustree\BPlusTree.java
+C:\Users\Maxime\IdeaProjects\nightclazz-bdd-rennes\src\main\java\bplustree\BPlusTreeNode.java
+C:\Users\Maxime\IdeaProjects\nightclazz-bdd-rennes\src\main\java\bplustree\index\IndexEntry.java
+C:\Users\Maxime\IdeaProjects\nightclazz-bdd-rennes\src\main\java\bplustree\index\IndexManager.java
+C:\Users\Maxime\IdeaProjects\nightclazz-bdd-rennes\src\main\java\bplustree\MemoryAddress.java
+C:\Users\Maxime\IdeaProjects\nightclazz-bdd-rennes\src\main\java\bplustree\MemoryAddressGenerator.java
+C:\Users\Maxime\IdeaProjects\nightclazz-bdd-rennes\src\main\java\bplustree\storage\DataPage.java
+C:\Users\Maxime\IdeaProjects\nightclazz-bdd-rennes\src\main\java\bplustree\storage\examples\PageDisplayExample.java
+C:\Users\Maxime\IdeaProjects\nightclazz-bdd-rennes\src\main\java\bplustree\storage\examples\PageStorageExamples.java
+C:\Users\Maxime\IdeaProjects\nightclazz-bdd-rennes\src\main\java\bplustree\storage\MemoryStore.java
+C:\Users\Maxime\IdeaProjects\nightclazz-bdd-rennes\src\main\java\bplustree\storage\PageEntry.java
+C:\Users\Maxime\IdeaProjects\nightclazz-bdd-rennes\src\main\java\bplustree\storage\PageManager.java
+C:\Users\Maxime\IdeaProjects\nightclazz-bdd-rennes\src\main\java\bplustree\valueobjects\Key.java
+C:\Users\Maxime\IdeaProjects\nightclazz-bdd-rennes\src\main\java\bplustree\valueobjects\Location.java
+C:\Users\Maxime\IdeaProjects\nightclazz-bdd-rennes\src\main\java\bplustree\valueobjects\Offset.java
+C:\Users\Maxime\IdeaProjects\nightclazz-bdd-rennes\src\main\java\bplustree\valueobjects\PageId.java
