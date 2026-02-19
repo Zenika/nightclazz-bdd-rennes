@@ -39,6 +39,7 @@ class BPlusTreeNode<T extends Comparable<T>> {
     }
 
     public boolean isFull() {
-        return keys.size() >= order - 1;
+        // nœud interne : order-1 clés max ; feuille : order clés max
+        return isLeaf ? keys.size() >= order : keys.size() >= order - 1;
     }
 }

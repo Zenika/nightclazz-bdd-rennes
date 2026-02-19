@@ -63,7 +63,6 @@ public class TreePrinter {
         blockLevels.addFirst(leafBlocks);
 
         // Niveaux intermédiaires et racine : centrer chaque parent sur ses enfants
-        int childLevelIdx = levels.size() - 1;
         List<Block> childBlocks = leafBlocks;
 
         for (int lvl = levels.size() - 2; lvl >= 0; lvl--) {

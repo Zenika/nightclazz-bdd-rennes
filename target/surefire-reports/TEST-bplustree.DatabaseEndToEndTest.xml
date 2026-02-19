@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="bplustree.DatabaseEndToEndTest" time="0.17" tests="6" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="bplustree.DatabaseEndToEndTest" time="0.183" tests="6" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="25"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="FR"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-25.0.2\bin"/>
-    <property name="sun.java.command" value="C:\Users\Maxime\AppData\Local\Temp\surefire13564967933506430480\surefirebooter-20260219165812103_3.jar C:\Users\Maxime\AppData\Local\Temp\surefire13564967933506430480 2026-02-19T16-58-11_974-jvmRun1 surefire-20260219165812103_1tmp surefire_0-20260219165812103_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\Maxime\AppData\Local\Temp\surefire11256927338970419543\surefirebooter-20260219171510936_3.jar C:\Users\Maxime\AppData\Local\Temp\surefire11256927338970419543 2026-02-19T17-15-10_782-jvmRun1 surefire-20260219171510936_1tmp surefire_0-20260219171510936_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\Maxime\IdeaProjects\nightclazz-bdd-rennes\target\test-classes;C:\Users\Maxime\IdeaProjects\nightclazz-bdd-rennes\target\classes;C:\Users\Maxime\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.1\junit-jupiter-5.10.1.jar;C:\Users\Maxime\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.1\junit-jupiter-api-5.10.1.jar;C:\Users\Maxime\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\Maxime\.m2\repository\org\junit\platform\junit-platform-commons\1.10.1\junit-platform-commons-1.10.1.jar;C:\Users\Maxime\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\Maxime\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.1\junit-jupiter-params-5.10.1.jar;C:\Users\Maxime\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.1\junit-jupiter-engine-5.10.1.jar;C:\Users\Maxime\.m2\repository\org\junit\platform\junit-platform-engine\1.10.1\junit-platform-engine-1.10.1.jar;C:\Users\Maxime\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.17.0\jackson-databind-2.17.0.jar;C:\Users\Maxime\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.17.0\jackson-annotations-2.17.0.jar;C:\Users\Maxime\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.17.0\jackson-core-2.17.0.jar;C:\Users\Maxime\.m2\repository\net\bytebuddy\byte-buddy\1.14.9\byte-buddy-1.14.9.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\Maxime\AppData\Local\Temp\surefire13564967933506430480\surefirebooter-20260219165812103_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\Maxime\AppData\Local\Temp\surefire11256927338970419543\surefirebooter-20260219171510936_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="25.0.2+10-LTS-69"/>
@@ -59,68 +59,68 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="69.0"/>
   </properties>
-  <testcase name="catalogue_de_produits_avec_ids_sequentiels(int)[1]" classname="bplustree.DatabaseEndToEndTest" time="0.06">
+  <testcase name="catalogue_de_produits_avec_ids_sequentiels(int)[1]" classname="bplustree.DatabaseEndToEndTest" time="0.07">
     <system-out><![CDATA[
 insert { nom: Casque audio, prix: 89.99 }
-==> id 1  [0x7839:0x056C]
+==> id 1  [0x8969:0x0E2A]
 insert { nom: Clavier mecanique, prix: 129.00 }
-==> id 2  [0x56FD:0x3EDE]
+==> id 2  [0xA4EC:0xAE80]
 insert { nom: Souris ergonomique, prix: 49.50 }
-==> id 3  [0xF9D0:0xA868]
+==> id 3  [0x0297:0x94B3]
 insert { nom: Bureau debout, prix: 350.00 }
-==> id 4  [0xA97E:0xF8B3]
+==> id 4  [0xC615:0xFC28]
 insert { nom: Lampe LED, prix: 25.00 }
-==> id 5  [0xB23B:0xDAFF]
+==> id 5  [0xFE23:0x0DD1]
 
   Arbre B+ ordre 3
 
                  3
          /               \
-       2 | 3             4
+         2               4
      /       \       /       \
      1       2       3     4 | 5
 
 select id = 3
   { "nom": "Souris ergonomique", "prix": 49.50, "categorie": "electronique" }
-  @ page 0, offset 2  [0xF9D0:0xA868]
+  @ page 0, offset 2  [0x0297:0x94B3]
 ]]></system-out>
   </testcase>
   <testcase name="catalogue_de_produits_avec_ids_sequentiels(int)[2]" classname="bplustree.DatabaseEndToEndTest" time="0.002">
     <system-out><![CDATA[
 insert { nom: Casque audio, prix: 89.99 }
-==> id 1  [0x39C7:0x8562]
+==> id 1  [0xF066:0x04B6]
 insert { nom: Clavier mecanique, prix: 129.00 }
-==> id 2  [0xDF38:0x9BBB]
+==> id 2  [0x975E:0x5737]
 insert { nom: Souris ergonomique, prix: 49.50 }
-==> id 3  [0x0CDD:0xB0D5]
+==> id 3  [0x99B7:0x0C61]
 insert { nom: Bureau debout, prix: 350.00 }
-==> id 4  [0xC29F:0xF848]
+==> id 4  [0xF3A2:0xF9D9]
 insert { nom: Lampe LED, prix: 25.00 }
-==> id 5  [0xF770:0xF300]
+==> id 5  [0x1558:0x4057]
 
   Arbre B+ ordre 4
 
-                 2 | 3
-       /           |           \
-       1           2       3 | 4 | 5
+             3
+       /           \
+     1 | 2     3 | 4 | 5
 
 select id = 3
   { "nom": "Souris ergonomique", "prix": 49.50, "categorie": "electronique" }
-  @ page 0, offset 2  [0x0CDD:0xB0D5]
+  @ page 0, offset 2  [0x99B7:0x0C61]
 ]]></system-out>
   </testcase>
-  <testcase name="catalogue_de_produits_avec_ids_sequentiels(int)[3]" classname="bplustree.DatabaseEndToEndTest" time="0.003">
+  <testcase name="catalogue_de_produits_avec_ids_sequentiels(int)[3]" classname="bplustree.DatabaseEndToEndTest" time="0.004">
     <system-out><![CDATA[
 insert { nom: Casque audio, prix: 89.99 }
-==> id 1  [0x3A8F:0xD217]
+==> id 1  [0x95DC:0xB9F3]
 insert { nom: Clavier mecanique, prix: 129.00 }
-==> id 2  [0x58E4:0xCE71]
+==> id 2  [0xC080:0xEF63]
 insert { nom: Souris ergonomique, prix: 49.50 }
-==> id 3  [0x741D:0xADF6]
+==> id 3  [0x2470:0x5B64]
 insert { nom: Bureau debout, prix: 350.00 }
-==> id 4  [0x4878:0xAC8F]
+==> id 4  [0x0F4A:0xD290]
 insert { nom: Lampe LED, prix: 25.00 }
-==> id 5  [0xFB2B:0x4A4F]
+==> id 5  [0xBD03:0x2FA7]
 
   Arbre B+ ordre 5
 
@@ -130,87 +130,87 @@ insert { nom: Lampe LED, prix: 25.00 }
 
 select id = 3
   { "nom": "Souris ergonomique", "prix": 49.50, "categorie": "electronique" }
-  @ page 0, offset 2  [0x741D:0xADF6]
+  @ page 0, offset 2  [0x2470:0x5B64]
 ]]></system-out>
   </testcase>
-  <testcase name="journal_de_commandes_avec_ids_uuidv4(int)[1]" classname="bplustree.DatabaseEndToEndTest" time="0.042">
+  <testcase name="journal_de_commandes_avec_ids_uuidv4(int)[1]" classname="bplustree.DatabaseEndToEndTest" time="0.044">
     <system-out><![CDATA[
 insert { client: Alice, montant: 120.00 }
-==> id 871787726  [0x76B1:0x0526]
+==> id 1017880373  [0x4C2D:0xD62C]
 insert { client: Bob, montant: 45.50 }
-==> id 1795219930  [0x272B:0x5202]
+==> id 504553297  [0x2368:0xD89F]
 insert { client: Charlie, montant: 890.00 }
-==> id 1807075752  [0xE2E8:0x24BD]
+==> id 856145956  [0xEF44:0x0756]
 insert { client: Diana, montant: 15.00 }
-==> id 367959898  [0x177D:0x7667]
+==> id 1793934808  [0x3B9B:0xCA4F]
 insert { client: Eve, montant: 230.00 }
-==> id 1820881863  [0x3EE2:0x16E3]
+==> id 445061566  [0xF0B3:0x2E67]
 insert { client: Frank, montant: 75.00 }
-==> id 1943194867  [0x1F3E:0x1DFB]
+==> id 1741326915  [0xA8A0:0xBC35]
 
   Arbre B+ ordre 3
 
-                                                1807075752
+                                                1017880373
                            /                                                   \
-                1795219930 | 1807075752                                   1820881863
-              /                          \                         /                        \
-    367959898 | 871787726           1795219930                1807075752         1820881863 | 1943194867
+                       856145956                                          1741326915
+              /                         \                          /                        \
+    445061566 | 504553297           856145956                 1017880373         1741326915 | 1793934808
 
-select id = 1807075752
+select id = 856145956
   { "client": "Charlie", "montant": 890.00, "statut": "livree" }
-  @ page 0, offset 2  [0xE2E8:0x24BD]
+  @ page 0, offset 2  [0xEF44:0x0756]
 ]]></system-out>
   </testcase>
   <testcase name="journal_de_commandes_avec_ids_uuidv4(int)[2]" classname="bplustree.DatabaseEndToEndTest" time="0.003">
     <system-out><![CDATA[
 insert { client: Alice, montant: 120.00 }
-==> id 1600948410  [0xF17F:0x5F2F]
+==> id 1725870959  [0x477D:0xBCA8]
 insert { client: Bob, montant: 45.50 }
-==> id 770481072  [0xF7D0:0x5B3F]
+==> id 624012188  [0x55B4:0x179C]
 insert { client: Charlie, montant: 890.00 }
-==> id 1808424802  [0xEE7E:0x1B3B]
+==> id 1846885021  [0x68CB:0xFDFF]
 insert { client: Diana, montant: 15.00 }
-==> id 1012562572  [0x65CB:0xC309]
+==> id 1844567443  [0x6F2D:0x19C2]
 insert { client: Eve, montant: 230.00 }
-==> id 2020120840  [0xB421:0xC7B9]
+==> id 462973365  [0x8BF6:0x1C0D]
 insert { client: Frank, montant: 75.00 }
-==> id 542909121  [0xB7EB:0xB89F]
+==> id 794937628  [0xBC37:0x3D62]
 
   Arbre B+ ordre 4
 
-                                   1600948410
-                     /                                      \
-    542909121 | 770481072 | 1012562572    1600948410 | 1808424802 | 2020120840
+                             794937628 | 1844567443
+              /                          \                        \
+    462973365 | 624012188     794937628 | 1725870959   1844567443 | 1846885021
 
-select id = 1808424802
+select id = 1846885021
   { "client": "Charlie", "montant": 890.00, "statut": "livree" }
-  @ page 0, offset 2  [0xEE7E:0x1B3B]
+  @ page 0, offset 2  [0x68CB:0xFDFF]
 ]]></system-out>
   </testcase>
-  <testcase name="journal_de_commandes_avec_ids_uuidv4(int)[3]" classname="bplustree.DatabaseEndToEndTest" time="0.005">
+  <testcase name="journal_de_commandes_avec_ids_uuidv4(int)[3]" classname="bplustree.DatabaseEndToEndTest" time="0.004">
     <system-out><![CDATA[
 insert { client: Alice, montant: 120.00 }
-==> id 1774071584  [0x077F:0xDF16]
+==> id 1519205306  [0xD501:0x19FD]
 insert { client: Bob, montant: 45.50 }
-==> id 923087812  [0x6AA7:0x8266]
+==> id 454453731  [0xCC8D:0x11D4]
 insert { client: Charlie, montant: 890.00 }
-==> id 153190269  [0x1C14:0x320B]
+==> id 115754799  [0xCBBD:0x0B0B]
 insert { client: Diana, montant: 15.00 }
-==> id 895800419  [0x7C39:0xF9F0]
+==> id 895238090  [0x837D:0x5B8E]
 insert { client: Eve, montant: 230.00 }
-==> id 1452785059  [0x20AA:0x32A3]
+==> id 1128739610  [0x3ACF:0xDCA7]
 insert { client: Frank, montant: 75.00 }
-==> id 1569037580  [0xEB80:0x1EF2]
+==> id 974917111  [0xA7D5:0xCC93]
 
   Arbre B+ ordre 5
 
-                                                923087812
-                           /                                                  \
-                 153190269 | 895800419                923087812 | 1452785059 | 1569037580 | 1774071584
+                                               895238090
+                          /                                                 \
+                115754799 | 454453731                895238090 | 974917111 | 1128739610 | 1519205306
 
-select id = 153190269
+select id = 115754799
   { "client": "Charlie", "montant": 890.00, "statut": "livree" }
-  @ page 0, offset 2  [0x1C14:0x320B]
+  @ page 0, offset 2  [0xCBBD:0x0B0B]
 ]]></system-out>
   </testcase>
 </testsuite>
