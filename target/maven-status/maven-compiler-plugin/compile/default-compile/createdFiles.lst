@@ -1,3 +1,4 @@
+bplustree\tree\BPlusTree$SplitResult.class
 bplustree\index\IndexEntry.class
 bplustree\storage\PageManager.class
 bplustree\storage\MemoryStore.class
