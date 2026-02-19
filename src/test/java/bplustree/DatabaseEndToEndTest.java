@@ -53,10 +53,11 @@ class DatabaseEndToEndTest {
     //  Scénario 2 : IDs UUID v4 — désordonnés, provoque des splits de pages
     // =========================================================================
 
-    @Test
-    void journal_de_commandes_avec_ids_uuidv4() {
+    @ParameterizedTest
+    @BPlusTreeOrderTest(orders = {3, 4, 5})
+    void journal_de_commandes_avec_ids_uuidv4(int ordre) {
 
-        var db = Database.withUuidV4Ids(/* ordre de l'arbre */ 4, /* taille de page */ 4);
+        var db = Database.withUuidV4Ids(ordre, /* taille de page */ 4);
 
         System.out.println("\ninsert { client: Alice, montant: 120.00 }");
         System.out.println(db.insert("""
