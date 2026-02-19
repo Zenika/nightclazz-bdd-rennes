@@ -1,4 +1,4 @@
-package bplustree.valueobjects;
+package bplustree.database;
 
 public record Key(Integer value) implements Comparable<Key> {
 

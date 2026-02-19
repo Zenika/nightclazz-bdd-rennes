@@ -1,10 +1,10 @@
 package bplustree.storage;
 
-import bplustree.MemoryAddress;
-import bplustree.MemoryAddressGenerator;
-import bplustree.valueobjects.Location;
-import bplustree.valueobjects.Offset;
-import bplustree.valueobjects.PageId;
+import bplustree.memory.MemoryAddress;
+import bplustree.memory.MemoryAddressGenerator;
+import bplustree.database.Location;
+import bplustree.database.Offset;
+import bplustree.database.PageId;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -56,14 +56,6 @@ public class PageManager<T extends Comparable<T>> {
         return new PageId(nextPageId.get());
     }
 
-    public T getValue(Location location) {
-        DataPage<T> page = pages.get(location.pageId());
-        if (page == null) {
-            return null;
-        }
-        return page.getValue(location.offset().value());
-    }
-
     public String getJsonData(Location location) {
         DataPage<T> page = pages.get(location.pageId());
         if (page == null) {
@@ -76,51 +68,8 @@ public class PageManager<T extends Comparable<T>> {
         return memoryStore.retrieve(entry.getMemoryAddress());
     }
 
-    public DataPage<T> getPage(PageId pageId) {
-        return pages.get(pageId);
-    }
-
     public int getPageCount() {
         return pages.size();
-    }
-
-    public Map<PageId, DataPage<T>> getAllPages() {
-        return Collections.unmodifiableMap(pages);
-    }
-
-    public List<T> getAllValuesSorted() {
-        List<T> allValues = new ArrayList<>();
-        for (int i = 0; i <= nextPageId.get(); i++) {
-            PageId pageId = new PageId(i);
-            DataPage<T> page = pages.get(pageId);
-            if (page != null) {
-                allValues.addAll(page.getValuesSorted());
-            }
-        }
-        Collections.sort(allValues);
-        return allValues;
-    }
-
-    public void reset() {
-        pages.clear();
-        nextPageId.set(0);
-        pages.put(new PageId(0), new DataPage<>(pageSize));
-    }
-
-    public void printDetailedPages() {
-        System.out.println("\n" + "=".repeat(60));
-        System.out.println("DETAILED PAGE VIEW");
-        System.out.println("=".repeat(60));
-
-        for (int i = 0; i <= nextPageId.get(); i++) {
-            PageId pageId = new PageId(i);
-            DataPage<T> page = pages.get(pageId);
-            if (page != null) {
-                System.out.println(page.toDetailedString(i));
-            }
-        }
-
-        System.out.println("=".repeat(60) + "\n");
     }
 
     @Override

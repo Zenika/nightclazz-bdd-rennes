@@ -1,6 +1,6 @@
 package bplustree.storage;
 
-import bplustree.MemoryAddress;
+import bplustree.memory.MemoryAddress;
 
 import java.util.*;
 
@@ -24,10 +24,6 @@ public class DataPage<T extends Comparable<T>> {
 
     private boolean isActuallyFull() {
         return sortedIndexList.size() >= pageSize;
-    }
-
-    public boolean hasSplit() {
-        return hasSplit;
     }
 
     public int activeSize() {
@@ -67,19 +63,6 @@ public class DataPage<T extends Comparable<T>> {
         return insertionOrderList.get(offset);
     }
 
-    public T getValue(int offset) {
-        PageEntry<T> entry = getEntry(offset);
-        return entry != null ? entry.getValue() : null;
-    }
-
-    public List<PageEntry<T>> getInsertionOrderList() {
-        return Collections.unmodifiableList(insertionOrderList);
-    }
-
-    public List<Integer> getSortedIndexList() {
-        return Collections.unmodifiableList(sortedIndexList);
-    }
-
     public List<T> getValuesSorted() {
         List<T> sorted = new ArrayList<>(sortedIndexList.size());
         for (Integer index : sortedIndexList) {
@@ -95,7 +78,7 @@ public class DataPage<T extends Comparable<T>> {
         for (int i = 0; i < sortedIndexList.size(); i++) {
             int idx = sortedIndexList.get(i);
             T val = insertionOrderList.get(idx).getValue();
-            if (newValue.compareTo(val) < 0 && insertPosition == -1) {
+            if (newValue.compareTo(val) < 0) {
                 insertPosition = i;
                 break;
             }
@@ -120,63 +103,6 @@ public class DataPage<T extends Comparable<T>> {
         sortedIndexList.subList(insertPosition, insertPosition + copiedCount).clear();
 
         return newValueOffset;
-    }
-
-    public T getMaxValue() {
-        if (sortedIndexList.isEmpty()) {
-            return null;
-        }
-        int lastSortedIndex = sortedIndexList.get(sortedIndexList.size() - 1);
-        return insertionOrderList.get(lastSortedIndex).getValue();
-    }
-
-    public T getMinValue() {
-        if (sortedIndexList.isEmpty()) {
-            return null;
-        }
-        int firstSortedIndex = sortedIndexList.get(0);
-        return insertionOrderList.get(firstSortedIndex).getValue();
-    }
-
-    public String toDetailedString(int pageNumber) {
-        StringBuilder sb = new StringBuilder();
-        sb.append("┌─────────────────────────────────────────────────────────┐\n");
-        sb.append(String.format("│ PAGE %d                                                 │\n", pageNumber));
-        sb.append("└─────────────────────────────────────────────────────────┘\n");
-
-        sb.append("\nBODY (index → value @ memory):\n");
-        for (int i = 0; i < insertionOrderList.size(); i++) {
-            PageEntry<T> entry = insertionOrderList.get(i);
-            if (entry != null) {
-                sb.append(String.format("  [%d] → %s @ %s\n",
-                    i,
-                    entry.getValue(),
-                    entry.getMemoryAddress()));
-            }
-        }
-
-        sb.append("\nOFFSET ROW (sorted indexes):\n");
-        sb.append("  ");
-        for (int i = 0; i < sortedIndexList.size(); i++) {
-            sb.append(String.format("[%d]", sortedIndexList.get(i)));
-            if (i < sortedIndexList.size() - 1) {
-                sb.append(" → ");
-            }
-        }
-        sb.append("\n");
-
-        sb.append("\nSORTED VALUES:\n");
-        sb.append("  ");
-        for (int i = 0; i < sortedIndexList.size(); i++) {
-            int idx = sortedIndexList.get(i);
-            sb.append(insertionOrderList.get(idx).getValue());
-            if (i < sortedIndexList.size() - 1) {
-                sb.append(", ");
-            }
-        }
-        sb.append("\n");
-
-        return sb.toString();
     }
 
     @Override

@@ -1,4 +1,4 @@
-package bplustree;
+package bplustree.tree;
 
 public class BPlusTree<T extends Comparable<T>> {
     private final int order;

@@ -1,4 +1,4 @@
-package bplustree;
+package bplustree.tree;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +8,7 @@ class BPlusTreeNode<T extends Comparable<T>> {
     private final List<T> keys;
     private final List<BPlusTreeNode<T>> children;
     private BPlusTreeNode<T> next; // Pour les feuilles
-    private boolean isLeaf;
+    private final boolean isLeaf;
 
     public BPlusTreeNode(int order, boolean isLeaf) {
         this.order = order;
@@ -16,10 +16,6 @@ class BPlusTreeNode<T extends Comparable<T>> {
         this.keys = new ArrayList<>();
         this.children = new ArrayList<>();
         this.next = null;
-    }
-
-    public int getOrder() {
-        return order;
     }
 
     public List<T> getKeys() {
@@ -40,10 +36,6 @@ class BPlusTreeNode<T extends Comparable<T>> {
 
     public boolean isLeaf() {
         return isLeaf;
-    }
-
-    public void setLeaf(boolean leaf) {
-        isLeaf = leaf;
     }
 
     public boolean isFull() {

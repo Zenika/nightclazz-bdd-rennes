@@ -1,12 +1,11 @@
-package bplustree;
+package bplustree.database;
 
 import bplustree.index.IndexEntry;
+import bplustree.memory.MemoryAddress;
+import bplustree.memory.MemoryAddressGenerator;
 import bplustree.storage.PageManager;
-import bplustree.valueobjects.Key;
-import bplustree.valueobjects.Location;
-import bplustree.valueobjects.Offset;
-import bplustree.valueobjects.PageId;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import bplustree.tree.BPlusTree;
+import bplustree.tree.TreePrinter;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -22,7 +21,6 @@ public class Database {
     private final PageManager<Integer> pageManager;
     private final Map<Integer, Location> locationById;
     private final Map<Integer, MemoryAddress> addressById;
-    private final ObjectMapper jsonMapper;
     private final AtomicInteger sequentialCounter;
     private final int treeOrder;
     private final MemoryAddressGenerator addressGenerator;
@@ -34,7 +32,6 @@ public class Database {
         this.pageManager      = new PageManager<>(pageSize);
         this.locationById     = new LinkedHashMap<>();
         this.addressById      = new LinkedHashMap<>();
-        this.jsonMapper       = new ObjectMapper();
         this.sequentialCounter = new AtomicInteger(1);
         this.addressGenerator = new MemoryAddressGenerator();
     }
@@ -48,7 +45,6 @@ public class Database {
     }
 
     public InsertResult insert(String jsonData) {
-        assertValidJson(jsonData);
 
         int id = generateId();
         MemoryAddress memoryAddress = addressGenerator.generateRandom();
@@ -79,10 +75,6 @@ public class Database {
         System.out.println(TreePrinter.print(index.getRoot(), treeOrder));
     }
 
-    public int treeOrder() {
-        return treeOrder;
-    }
-
     // -------------------------------------------------------------------------
 
     private int generateId() {
@@ -90,14 +82,6 @@ public class Database {
             case SEQUENTIAL -> sequentialCounter.getAndIncrement();
             case UUID_V4    -> Math.abs(UUID.randomUUID().hashCode());
         };
-    }
-
-    private void assertValidJson(String json) {
-        try {
-            jsonMapper.readTree(json);
-        } catch (Exception e) {
-            throw new IllegalArgumentException("JSON invalide : " + e.getMessage(), e);
-        }
     }
 
     // -------------------------------------------------------------------------

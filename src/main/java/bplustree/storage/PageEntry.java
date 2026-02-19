@@ -1,6 +1,6 @@
 package bplustree.storage;
 
-import bplustree.MemoryAddress;
+import bplustree.memory.MemoryAddress;
 
 public class PageEntry<T extends Comparable<T>> {
 

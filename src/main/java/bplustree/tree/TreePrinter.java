@@ -1,4 +1,4 @@
-package bplustree;
+package bplustree.tree;
 
 import bplustree.index.IndexEntry;
 
@@ -60,7 +60,7 @@ public class TreePrinter {
             int leftPad = pad / 2;
             leafBlocks.add(new Block(offset + leftPad, label.length(), label));
         }
-        blockLevels.add(0, leafBlocks);
+        blockLevels.addFirst(leafBlocks);
 
         // Niveaux intermédiaires et racine : centrer chaque parent sur ses enfants
         int childLevelIdx = levels.size() - 1;
@@ -91,7 +91,7 @@ public class TreePrinter {
                     childIdx += childCount;
                 }
             }
-            blockLevels.add(0, parentBlocks);
+            blockLevels.addFirst(parentBlocks);
             childBlocks = parentBlocks;
         }
 
@@ -186,26 +186,4 @@ public class TreePrinter {
         return sb.toString();
     }
 
-    private static void appendLeafChain(BPlusTreeNode<IndexEntry> node, StringBuilder sb) {
-        BPlusTreeNode<IndexEntry> leaf = leftmostLeaf(node);
-        boolean first = true;
-        while (leaf != null) {
-            if (!first) sb.append(" -> ");
-            sb.append("[");
-            List<IndexEntry> keys = leaf.getKeys();
-            for (int i = 0; i < keys.size(); i++) {
-                if (i > 0) sb.append(", ");
-                sb.append(keys.get(i).key().value());
-            }
-            sb.append("]");
-            first = false;
-            leaf = leaf.getNext();
-        }
-        sb.append("\n");
-    }
-
-    private static BPlusTreeNode<IndexEntry> leftmostLeaf(BPlusTreeNode<IndexEntry> node) {
-        while (!node.isLeaf()) node = node.getChildren().get(0);
-        return node;
-    }
 }

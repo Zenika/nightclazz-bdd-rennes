@@ -1,6 +1,6 @@
 package bplustree.storage;
 
-import bplustree.MemoryAddress;
+import bplustree.memory.MemoryAddress;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,10 +19,6 @@ public class MemoryStore {
 
     public String retrieve(MemoryAddress address) {
         return storage.get(address);
-    }
-
-    public boolean contains(MemoryAddress address) {
-        return storage.containsKey(address);
     }
 
     public int size() {

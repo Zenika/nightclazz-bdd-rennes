@@ -1,4 +1,4 @@
-package bplustree.valueobjects;
+package bplustree.database;
 
 public record Location(PageId pageId, Offset offset) {
 
