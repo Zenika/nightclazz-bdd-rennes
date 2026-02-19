@@ -27,7 +27,7 @@ public class PageManager<T extends Comparable<T>> {
     }
 
     public Location insert(T value, String jsonData) {
-        MemoryAddress memoryAddress = addressGenerator.generateSequential();
+        MemoryAddress memoryAddress = addressGenerator.generateRandom();
         memoryStore.store(memoryAddress, jsonData);
 
         PageId targetPageId = findPageForValue();

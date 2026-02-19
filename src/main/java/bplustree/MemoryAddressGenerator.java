@@ -27,30 +27,6 @@ public class MemoryAddressGenerator {
         return new MemoryAddress(sector, offset);
     }
 
-    public MemoryAddress generateRandom(int maxSector, int maxOffset) {
-        int sector = random.nextInt(maxSector + 1);
-        int offset = random.nextInt(maxOffset + 1);
-        return new MemoryAddress(sector, offset);
-    }
-
-    public MemoryAddress generateSequential() {
-        int offset = sequentialOffset.getAndIncrement();
-        int sector = sequentialSector.get();
-
-        // Si l'offset dépasse 0xFFFF, on passe au secteur suivant
-        if (offset > 0xFFFF) {
-            sector = sequentialSector.incrementAndGet();
-            offset = 0;
-            sequentialOffset.set(1);
-        }
-
-        return new MemoryAddress(sector, offset);
-    }
-
-    public MemoryAddress generate(int sector, int offset) {
-        return new MemoryAddress(sector, offset);
-    }
-
     public void resetSequential() {
         sequentialSector.set(0);
         sequentialOffset.set(0);

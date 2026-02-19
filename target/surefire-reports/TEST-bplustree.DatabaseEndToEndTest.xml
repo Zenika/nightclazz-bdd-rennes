@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="bplustree.MemoryAddressGeneratorTest" time="0.023" tests="5" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="bplustree.DatabaseEndToEndTest" time="0.307" tests="5" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="25"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -59,9 +59,117 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="69.0"/>
   </properties>
-  <testcase name="address_with_negative_offset_is_rejected" classname="bplustree.MemoryAddressGeneratorTest" time="0.006"/>
-  <testcase name="generated_address_has_non_negative_sector_and_offset" classname="bplustree.MemoryAddressGeneratorTest" time="0.002"/>
-  <testcase name="address_with_negative_sector_is_rejected" classname="bplustree.MemoryAddressGeneratorTest" time="0.001"/>
-  <testcase name="address_displays_in_hex_format" classname="bplustree.MemoryAddressGeneratorTest" time="0.002"/>
-  <testcase name="two_generators_with_same_seed_produce_same_address" classname="bplustree.MemoryAddressGeneratorTest" time="0.006"/>
+  <testcase name="inserer_un_json_invalide_leve_une_exception_explicite" classname="bplustree.DatabaseEndToEndTest" time="0.169">
+    <system-out><![CDATA[JSON rejete comme attendu : JSON invalide : Unrecognized token 'ceci': was expecting (JSON String, Number, Array, Object or token 'null', 'true' or 'false')
+ at [Source: REDACTED (`StreamReadFeature.INCLUDE_SOURCE_IN_LOCATION` disabled); line: 1, column: 5]
+]]></system-out>
+  </testcase>
+  <testcase name="catalogue_de_produits_avec_ids_sequentiels(int)[1]" classname="bplustree.DatabaseEndToEndTest" time="0.043">
+    <system-out><![CDATA[
+insert { nom: Casque audio, prix: 89.99 }
+==> id 1  [0xDDDA:0xD6D6]
+insert { nom: Clavier mecanique, prix: 129.00 }
+==> id 2  [0x418C:0x913F]
+insert { nom: Souris ergonomique, prix: 49.50 }
+==> id 3  [0xB6C8:0xC969]
+insert { nom: Bureau debout, prix: 350.00 }
+==> id 4  [0x9239:0x8777]
+insert { nom: Lampe LED, prix: 25.00 }
+==> id 5  [0xEDEF:0x201F]
+
+  Arbre B+ ordre 3
+
+                 3
+         /               \
+       2 | 3             4
+     /       \       /       \
+     1       2       3     4 | 5
+
+  Feuilles : [1] -> [2] -> [3] -> [4, 5]
+
+select id = 3
+  { "nom": "Souris ergonomique", "prix": 49.50, "categorie": "electronique" }
+  @ page 0, offset 2  [0xB6C8:0xC969]
+]]></system-out>
+  </testcase>
+  <testcase name="catalogue_de_produits_avec_ids_sequentiels(int)[2]" classname="bplustree.DatabaseEndToEndTest" time="0.004">
+    <system-out><![CDATA[
+insert { nom: Casque audio, prix: 89.99 }
+==> id 1  [0xB4C0:0x3614]
+insert { nom: Clavier mecanique, prix: 129.00 }
+==> id 2  [0x303E:0xE269]
+insert { nom: Souris ergonomique, prix: 49.50 }
+==> id 3  [0xEC06:0xF490]
+insert { nom: Bureau debout, prix: 350.00 }
+==> id 4  [0x7310:0xC04C]
+insert { nom: Lampe LED, prix: 25.00 }
+==> id 5  [0x8EC5:0xF914]
+
+  Arbre B+ ordre 4
+
+                 2 | 3
+       /           |           \
+       1           2       3 | 4 | 5
+
+  Feuilles : [1] -> [2] -> [3, 4, 5]
+
+select id = 3
+  { "nom": "Souris ergonomique", "prix": 49.50, "categorie": "electronique" }
+  @ page 0, offset 2  [0xEC06:0xF490]
+]]></system-out>
+  </testcase>
+  <testcase name="catalogue_de_produits_avec_ids_sequentiels(int)[3]" classname="bplustree.DatabaseEndToEndTest" time="0.004">
+    <system-out><![CDATA[
+insert { nom: Casque audio, prix: 89.99 }
+==> id 1  [0x4121:0x9062]
+insert { nom: Clavier mecanique, prix: 129.00 }
+==> id 2  [0x23B8:0xB3A8]
+insert { nom: Souris ergonomique, prix: 49.50 }
+==> id 3  [0x7C0C:0x3476]
+insert { nom: Bureau debout, prix: 350.00 }
+==> id 4  [0x37F0:0xDEAF]
+insert { nom: Lampe LED, prix: 25.00 }
+==> id 5  [0x722D:0x24D9]
+
+  Arbre B+ ordre 5
+
+             3
+       /           \
+     1 | 2     3 | 4 | 5
+
+  Feuilles : [1, 2] -> [3, 4, 5]
+
+select id = 3
+  { "nom": "Souris ergonomique", "prix": 49.50, "categorie": "electronique" }
+  @ page 0, offset 2  [0x7C0C:0x3476]
+]]></system-out>
+  </testcase>
+  <testcase name="journal_de_commandes_avec_ids_uuidv4" classname="bplustree.DatabaseEndToEndTest" time="0.037">
+    <system-out><![CDATA[
+insert { client: Alice, montant: 120.00 }
+==> id 1279067104  [0xAD7C:0x7DE2]
+insert { client: Bob, montant: 45.50 }
+==> id 1783487814  [0x572D:0xADCA]
+insert { client: Charlie, montant: 890.00 }
+==> id 1988694991  [0xF6FC:0xA049]
+insert { client: Diana, montant: 15.00 }
+==> id 2063627810  [0xCB8D:0x045F]
+insert { client: Eve, montant: 230.00 }
+==> id 311905435  [0x377D:0x9D63]
+insert { client: Frank, montant: 75.00 }
+==> id 1723924722  [0x119C:0x92F5]
+
+  Arbre B+ ordre 4
+
+                                   1783487814
+                     /                                      \
+    311905435 | 1279067104 | 1723924722   1783487814 | 1988694991 | 2063627810
+
+  Feuilles : [311905435, 1279067104, 1723924722] -> [1783487814, 1988694991, 2063627810]
+
+select id = 1988694991
+  { "client": "Charlie", "montant": 890.00, "statut": "livree" }
+  @ page 0, offset 2  [0xF6FC:0xA049]
+]]></system-out>
+  </testcase>
 </testsuite>

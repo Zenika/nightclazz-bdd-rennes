@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: bplustree.storage.PageManagerTest
+Test set: bplustree.DatabaseEndToEndTest
 -------------------------------------------------------------------------------
-Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s -- in bplustree.storage.PageManagerTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.307 s -- in bplustree.DatabaseEndToEndTest

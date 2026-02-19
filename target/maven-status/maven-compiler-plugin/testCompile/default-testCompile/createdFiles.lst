@@ -1,9 +1,4 @@
 bplustree\BPlusTreeOrderTest.class
-bplustree\index\IndexManagerTest.class
-bplustree\valueobjects\ValueObjectsTest.class
-bplustree\BPlusTreeOrderArgumentsProvider.class
-bplustree\BPlusTreeTest.class
-bplustree\storage\DataPageTest.class
-bplustree\storage\DebugMultipleSplits.class
-bplustree\storage\PageManagerTest.class
 bplustree\MemoryAddressGeneratorTest.class
+bplustree\BPlusTreeOrderArgumentsProvider.class
+bplustree\DatabaseEndToEndTest.class
